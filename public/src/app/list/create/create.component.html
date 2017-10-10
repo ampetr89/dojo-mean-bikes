@@ -1,0 +1,41 @@
+<h3>Create a Listing</h3>
+<form (ngSubmit)="newPost($event); formData.reset()" #formData="ngForm" class="w3-col l12">
+
+  <div class="w3-col l3">
+    <img *ngIf="post.img_url" src="{{post.img_url}}" alt="No image found at this url">
+    <p *ngIf="!post.img_url">Image preview will appear here</p>
+  </div>
+
+  <div class="w3-col l4">
+    <p>Title</p>
+    <p><input type="text" name="title"
+      [(ngModel)]="post.title"
+    ></p>
+
+    <p>Description</p>
+    <p><textarea name="description"
+      [(ngModel)]="post.description"
+    >
+    </textarea></p>
+  </div>
+
+  <div class="w3-col l3">
+    <p>Price</p>
+    <p><input type="text" name="price"
+      [(ngModel)]="post.price"
+    ></p>
+
+    <p>Location</p>
+    <p><input type="text" name="location"
+      [(ngModel)]="post.location"
+    ></p>
+
+    <p>Link to Image</p>
+    <p><input type="text" name="img_url"
+      [(ngModel)]="post.img_url"
+    ></p>
+
+    <input type="submit" value="Create Listing">
+  </div>
+
+</form>

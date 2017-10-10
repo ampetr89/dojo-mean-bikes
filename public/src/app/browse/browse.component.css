@@ -1,0 +1,13 @@
+#search{
+  width: 90%;
+  font-size: 120%
+}
+
+#nresults{
+  font-size: 150%;
+  color: green;
+}
+
+h4, h5{
+  font-weight: bold
+}

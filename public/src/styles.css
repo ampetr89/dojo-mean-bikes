@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+app-root{
+  padding: 32 0 !important;
+}
+.post{
+
+  margin-bottom: 1em;
+}
+.w3-card{
+  padding: 2em;
+}
+.column{
+  display: inline-block;
+  vertical-align: top
+}
+
+.w3-padding-large{
+  display: block;
+  padding: 32px;
+}
+
+.center{
+  display: block;
+  margin: 0 auto;
+}
+
+.form-error{
+  color: darkred;
+}
+
+img{
+  max-height: 300px;
+  max-width: 300px
+}

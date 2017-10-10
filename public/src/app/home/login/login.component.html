@@ -1,0 +1,18 @@
+<section class="w3-col l3">
+  <h3>Login</h3>
+  <div class='errors' *ngIf="errorMessages">
+    <p class="w3-panel w3-pale-red" *ngFor="let msg of errorMessages">
+      {{msg}}
+    </p>
+  </div>
+  <form (submit)="login($event)" #loginData="ngForm" autocomplete="off" >
+
+    <p>Email</p>
+    <p><input type="email" name="email" [(ngModel)]="user.email"></p>
+
+    <p>Password</p>
+    <p><input type="password" name="password" [(ngModel)]="user.password"></p>
+
+    <input type="submit" value="Login">
+  </form>
+</section>

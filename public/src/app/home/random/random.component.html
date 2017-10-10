@@ -1,0 +1,24 @@
+<h3 class="w3-center">Post of the Day!</h3>
+<!--<div class="w3-col l2">&nbsp;</div>-->
+<div *ngIf="post" class="post w3-card w3-col l8" >
+<!--w3-col l8 center w3-small-->
+  <div class="w3-col l2">
+     <img src="{{post.img_url}}" style="width:100%">
+  </div>
+  <div class="w3-col l1">
+    &nbsp;
+  </div>
+  <div class="w3-col l5">
+    <h4>{{post.title}}</h4>
+
+    <h5>Description</h5>
+    <p>{{post.description}}</p>
+  </div>
+  <div class="w3-col l4">
+    <h5>Price: {{post.price | currency:'USD':true}}</h5>
+
+    <h5>Location: {{post.location}}</h5>
+  </div>
+
+</div>
+<!---<div class="w3-col l2">&nbsp;</div>-->

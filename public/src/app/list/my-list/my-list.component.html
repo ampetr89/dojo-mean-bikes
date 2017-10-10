@@ -1,0 +1,59 @@
+<h3>Manage My Listings</h3>
+
+<div *ngFor="let post of posts; let index = index" class="post">
+  <form #formData="ngForm" (ngSubmit)="updatePost(post, $event)" class="w3-col l12 w3-card"
+    >
+    <p class="w3-panel w3-pale-red"
+         *ngIf="errors">
+          {{errors}}
+    </p>
+    <div class="w3-col l2 m8">
+      <img src="{{post.img_url}}" style="width:100%">
+    </div>
+    <div class="w3-col l1">
+      &nbsp;
+    </div>
+    <div class="w3-col l10">
+      <div class="w3-col l4">
+        <label>Title</label>
+        <p><input [ngClass]="{disabled: index!=editing}" class="title" type="text" name="title" value="{{post.title}}"></p>
+
+        <label>Description</label>
+        <p><textarea
+          [ngClass]="{disabled: index!=editing}"
+           name="description"
+           maxlength="200"
+          >{{post.description}}</textarea></p>
+      </div>
+
+      <div class="w3-col l4">
+        <label>Price</label>
+        <p><input [ngClass]="{disabled: index!=editing}"  type="number" name="price" value="{{post.price | currency:'USD':true}}"></p>
+
+        <label>Location</label>
+
+        <p><input
+          [ngClass]="{disabled: index!=editing}"
+          type="text" name="location" value="{{post.location}}"
+
+          ></p>
+
+      </div>
+
+      <div class="w3-col l4">
+        <p><button *ngIf="index!=editing" (click)="enableEdit(index)">Edit</button></p>
+        <p><input *ngIf="index==editing" type="submit" value="Update"></p>
+        <p><button (click)="deletePost(post)">Delete</button></p>
+        <p class="message"></p>
+      </div>
+
+      <div class="w3-col l12">
+        <label>Image URL</label>
+        <p><input [ngClass]="{disabled: index!=editing}"  type="text" name="img_url" value="{{post.img_url}}"></p>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>

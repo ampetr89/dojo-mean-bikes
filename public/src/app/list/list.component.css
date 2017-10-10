@@ -1,0 +1,15 @@
+
+app-create{
+  display: block;
+  width: 100%;
+  margin-bottom: 3em;
+  min-height: 25vh;
+}
+
+app-my-list{
+  height: 75vh;
+  overflow-y: auto;
+  display: block;
+
+  border: 1px solid black;
+}

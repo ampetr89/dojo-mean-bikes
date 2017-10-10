@@ -1,0 +1,65 @@
+<section class="w3-col l3 w3-padding">
+  <h3>Register</h3>
+  <div class='errors' *ngIf="errorMessages">
+    <p class="w3-panel w3-pale-red" *ngFor="let msg of errorMessages">
+      {{msg}}
+    </p>
+  </div>
+  <form (ngSubmit)="register($event)" #formData="ngForm" >
+    <p>User Name</p>
+    <p class="w3-panel w3-pale-red"
+      *ngIf = "user_name.touched && user_name.errors">
+      {{user_name.errors | error: 'User name' }}</p>
+    <p><input type="text" name="name"
+      autocomplete="off"
+      [(ngModel)]="user.name"
+      required
+      minlength="3"
+      #user_name = "ngModel"
+      >
+    </p>
+
+    <p>Email</p>
+    <!-- alphanumeric and can have @. * or #. Must be between 8 and 15 characters -->
+    <p class="w3-panel w3-pale-red"
+     *ngIf="user_email.touched && user_email.errors">
+      {{user_email.errors | error: 'Email'}}
+    </p>
+    <p><input type="email" name="email"
+      [(ngModel)]="user.email"
+      autocomplete="off"
+      required
+      pattern = "^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+      #user_email = "ngModel"
+      >
+    </p>
+
+    <p>Password</p>
+    <p class="w3-text-gray w3-small">Must have at least 16 characters, and can contain letters, numbers and special characteres @, # and *.</p>
+    <p class="w3-panel w3-pale-red"
+      *ngIf="user_password.touched && user_password.errors">
+      {{user_password.errors | error: 'Password' }}
+    </p>
+    <p><input type="password" name="password"
+      [(ngModel)]="user.password"
+      autocomplete="off"
+      required
+      minlength="16"
+      pattern="^([a-zA-Z0-9@*#]{16,32})$"
+      #user_password = "ngModel"
+      ></p>
+
+    <p>Confirm Password</p>
+    <p class="w3-panel w3-pale-red" *ngIf="user_password2.touched && user.password!=user_password2.value">Passwords need to match</p>
+    <p><input type="password" name="password2"
+      [(ngModel)]="password2"
+      autocomplete="off"
+      required
+      #user_password2 = "ngModel"
+      ></p>
+
+
+    <input *ngIf="formData.valid && user_password.value == user_password2.value" type="submit" value="Register">
+  </form>
+
+</section>
